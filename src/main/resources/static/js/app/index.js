@@ -11,11 +11,15 @@ var main = {
             _this.delete();
         });
     },
+
+
+
     save : function () {
         var data = {
             title: $('#title').val(),
             author: $('#author').val(),
-            content: $('#content').val()
+            content: $('#content').val(),
+            dateTime: $('#dateTime').val()
         };
 
         $.ajax({

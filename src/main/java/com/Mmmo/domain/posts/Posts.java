@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Getter  //getter메소드 자동 생성
@@ -27,11 +28,14 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
+    private String dateTime;
+
     @Builder //생성자상단에 선언시 생성자에 포합된 필드만 빌더에 포
-    public Posts(String title, String content, String author) {
+    public Posts(String title, String content, String author , String dateTime) {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.dateTime = dateTime;
     }
 
     public void update(String title,String content) {

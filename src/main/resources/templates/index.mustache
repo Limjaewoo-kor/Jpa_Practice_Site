@@ -1,37 +1,105 @@
 
 {{>layout/header}}
 
-<h1>스프링 부트로 시작하는 웹 서비스</h1>
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-            </div>
-        </div>
-
-        <br>
-        <!--목록 출력 영역-->
-        <table class="table table-horzontal table-bordered">
-            <thead class="thead-strong">
-            <tr>
-                <th>게시글 번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>최종수정일</th>
-            </tr>
-            </thead>
-            <tbody id="tbody">
-            {{#posts}}
-                <tr>
-                    <td>{{id}}</td>
-                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                    <td>{{author}}</td>
-                    <td>{{modifiedDate}}</td>
-                </tr>
-            {{/posts}}
-            </tbody>
-        </table>
+<header>
+    <div id="header_photo"><input type="file" name="upic" /></div>
+    <div id="header_ment">OOO님 힘내세요!!</div>
+    <div id="header_a">
+        <a href="/loginform">로그인</a> / <a href="#">회원 가입</a>
     </div>
+    <div id="header_title">MyMeMo</div>
+</header>
+<nav>
+    <ul>
+        <li><a href="#"> 일정 관리(캘린더)</a></li>
+        <li><a href="#"> 숙제 생성(알림)</a></li>
+        <li><a href="#"> 위시리스트(필요한 물건)</a></li>
+        <li><a href="#"> 휴식 타이머(알람)</a></li>
+        <li><a href="#"> 메모(게시판형식)</a></li>
+        <li><a href="#"> 가계부(엑셀)</a></li>
+        <li><a href="#"> 명언 등록/조회하기</a></li>
+    </ul>
+</nav>
+<section id="cal">
+    <div class="container" >
+        <div id="div_calendar" >
+            <div>
+                <button type="button" onclick="changeMonth(-1);"><i class="fa fa-chevron-left"></i></button>
+                <input type="number" id="year" value="2020" style="width:80px;display:initial;" class="form-control" />
+                <select id="month" class="form-control" style="width:80px;display:initial;" onchange="changeMonth();">
+                    <option value="1">1월</option>
+                    <option value="2">2월</option>
+                    <option value="3">3월</option>
+                    <option value="4">4월</option>
+                    <option value="5">5월</option>
+                    <option value="6">6월</option>
+                    <option value="7">7월</option>
+                    <option value="8">8월</option>
+                    <option value="9">9월</option>
+                    <option value="10">10월</option>
+                    <option value="11">11월</option>
+                    <option value="12">12월</option>
+                </select>
+                <button type="button" onclick="changeMonth(1);"><i class="fa fa-chevron-right"></i></button>
+                <div style="float: right; margin-top: 5px;">
+                    <a href="/posts/save" role="button" class="btn btn-primary">일정 추가</a>
+                    <a href="/posts/update/{data}" role="button" class="btn btn-primary">일정 수정</a>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr bgcolor="#add8e6" style="border: 3px solid gray; height: 100px;">
+                    <th style="color: red">일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                </tr>
+                </thead>
+                <tbody id="tb_body"  bgcolor="#f6ffa1" style="border: 3px solid gray;"></tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+<footer>
+    <div style="font-size: 25px; text-align: center;">Web Developer LJW </div>
+
+</footer>
+
+<!--<h1>스프링 부트로 시작하는 웹 서비스</h1>-->
+<!--    <div class="col-md-12">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-6">-->
+<!--                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <br>-->
+<!--        &lt;!&ndash;목록 출력 영역&ndash;&gt;-->
+<!--        <table class="table table-horzontal table-bordered">-->
+<!--            <thead class="thead-strong">-->
+<!--            <tr>-->
+<!--                <th>게시글 번호</th>-->
+<!--                <th>제목</th>-->
+<!--                <th>작성자</th>-->
+<!--                <th>최종수정일</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody id="tbody">-->
+<!--            {{#posts}}-->
+<!--                <tr>-->
+<!--                    <td>{{id}}</td>-->
+<!--                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>-->
+<!--                    <td>{{author}}</td>-->
+<!--                    <td>{{modifiedDate}}</td>-->
+<!--                </tr>-->
+<!--            {{/posts}}-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
 
 
 {{>layout/footer}}

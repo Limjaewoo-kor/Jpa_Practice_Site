@@ -5,17 +5,22 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
 @NoArgsConstructor
 public class PostsSaveRequestDto {
     private String title;
     private String content;
     private String author;
+    private String dateTime;
+
     @Builder
-    public PostsSaveRequestDto(String title, String content, String author){
+    public PostsSaveRequestDto(String title, String content, String author, String dateTime){
         this.title = title;
         this.content = content;
         this.author = author;
+        this.dateTime= dateTime;
     }
 
     public Posts toEntity() {
@@ -23,6 +28,7 @@ public class PostsSaveRequestDto {
                 .title(title)
                 .content(content)
                 .author(author)
+                .dateTime(dateTime)
                 .build();
     }
 }
