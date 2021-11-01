@@ -13,14 +13,14 @@ public class PostsSaveRequestDto {
     private String title;
     private String content;
     private String author;
-    private String dateTime;
+    private String inputDate;
 
     @Builder
-    public PostsSaveRequestDto(String title, String content, String author, String dateTime){
+    public PostsSaveRequestDto(String title, String content, String author, String inputDate){
         this.title = title;
         this.content = content;
         this.author = author;
-        this.dateTime= dateTime;
+        this.inputDate= inputDate;
     }
 
     public Posts toEntity() {
@@ -28,7 +28,7 @@ public class PostsSaveRequestDto {
                 .title(title)
                 .content(content)
                 .author(author)
-                .dateTime(dateTime)
+                .inputDate(inputDate)
                 .build();
     }
 }

@@ -5,7 +5,7 @@
     <div id="header_photo"><input type="file" name="upic" /></div>
     <div id="header_ment">OOO님 힘내세요!!</div>
     <div id="header_a">
-        <a href="#">로그인</a> / <a href="#">회원 가입</a>
+        <a href="/loginform" role="button" class="btn" >로그인</a>  /  <a href="#" role="button" class="btn" >회원 가입</a>
     </div>
     <div id="header_title">MyMeMo</div>
 </header>
@@ -16,61 +16,112 @@
         <li><a href="#"> 위시리스트(필요한 물건)</a></li>
         <li><a href="#"> 휴식 타이머(알람)</a></li>
         <li><a href="#"> 메모(게시판형식)</a></li>
+        <li><a href="#"> 가계부(엑셀)</a></li>
         <li><a href="#"> 명언 등록/조회하기</a></li>
     </ul>
 </nav>
 <section id="cal">
-    <div style="margin-top: 50px; margin-left: 30px">
-        <form>
-            <div class="form-group">
-                <label for="title">날짜</label>
-                <input type="text" class="form-control" id="dateTime" placeholder="날짜를 선택하세요" value="2021/10/01" readonly>
+    <div class="container" >
+        <div id="div_calendar" >
+            <div>
+                <button type="button" onclick="changeMonth(-1);"><i class="fa fa-chevron-left"></i></button>
+                <input type="number" id="year" value="2020" style="width:80px;display:initial;" class="form-control" />
+                <select id="month" class="form-control" style="width:80px;display:initial;" onchange="changeMonth();">
+                    <option value="1">1월</option>
+                    <option value="2">2월</option>
+                    <option value="3">3월</option>
+                    <option value="4">4월</option>
+                    <option value="5">5월</option>
+                    <option value="6">6월</option>
+                    <option value="7">7월</option>
+                    <option value="8">8월</option>
+                    <option value="9">9월</option>
+                    <option value="10">10월</option>
+                    <option value="11">11월</option>
+                    <option value="12">12월</option>
+                </select>
+                <button type="button" onclick="changeMonth(1);"><i class="fa fa-chevron-right"></i></button>
             </div>
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
-            </div>
-            <div class="form-group">
-                <label for="author">작성자</label>
-                <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요">
-            </div>
-            <div clss="form-group">
-                <label for="content">내용</label>
-                <textarea type="text" class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>
-            </div>
-        </form>
-
+            <table >
+                <thead>
+                <tr bgcolor="#add8e6" style="border: 3px solid gray; ">
+                    <th style="color: red;">일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                </tr>
+                </thead>
+                <tbody id="tb_body"  bgcolor="#f6ffa1" style="border: 3px solid gray;"></tbody>
+            </table>
+        </div>
     </div>
-    <button type="button" class="btn btn-primary" id="btn-save">등록</button>
-    <a href="/" role="button" class="btn btn=secondary">취소</a>
 </section>
+<section2 id="cal2">
+
+    <form>
+        <div class="form-group">
+            <label for="inputDate">날 짜</label>
+            <input type="text" class="form-control" id="inputDate">
+        </div>
+        <div class="form-group">
+            <label for="title">제 목</label>
+            <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요" style="width: 500px; height: 30px;">
+        </div>
+        <div class="form-group">
+            <label for="author">작성자</label>
+            <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요"  style="width: 500px; height: 30px;">
+        </div>
+        <div class="form-group">
+            <label for="content">내 용</label>
+            <textarea type="text" class="form-control" id="content" placeholder="내용을 입력하세요"  style="width: 500px; height: 400px;"></textarea>
+        </div>
+    </form>
+
+    <div style="float: right; margin-top: 5px;">
+        <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+        <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
+        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+    </div>
+</section2>
 <footer>
     <div style="font-size: 25px; text-align: center;">Web Developer LJW </div>
 
 </footer>
 
-<!--<h1>게시글 등록</h1>-->
+<!--<h1>스프링 부트로 시작하는 웹 서비스</h1>-->
 <!--    <div class="col-md-12">-->
-<!--            <div class="col-md-4">-->
-<!--                <form>-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="title">제목</label>-->
-<!--                        <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="author">작성자</label>-->
-<!--                        <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요">-->
-<!--                    </div>-->
-<!--                    <div clss="form-group">-->
-<!--                        <label for="content">내용</label>-->
-<!--                        <textarea type="text" class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>-->
-<!--                    </div>-->
-<!--                </form>-->
-
-<!--                <a href="/" role="button" class="btn btn=secondary">취소</a>-->
-<!--                <button type="button" class="btn btn-primary" id="btn-save">등록</button>-->
-
+<!--        <div class="row">-->
+<!--            <div class="col-md-6">-->
+<!--                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>-->
 <!--            </div>-->
+<!--        </div>-->
+
+<!--        <br>-->
+<!--        &lt;!&ndash;목록 출력 영역&ndash;&gt;-->
+<!--        <table class="table table-horzontal table-bordered">-->
+<!--            <thead class="thead-strong">-->
+<!--            <tr>-->
+<!--                <th>게시글 번호</th>-->
+<!--                <th>제목</th>-->
+<!--                <th>작성자</th>-->
+<!--                <th>최종수정일</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody id="tbody">-->
+        <!--            {{#posts}}-->
+<!--                <tr>-->
+<!--                    <td>{{id}}</td>-->
+<!--                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>-->
+<!--                    <td>{{author}}</td>-->
+<!--                    <td>{{modifiedDate}}</td>-->
+<!--                </tr>-->
+        <!--            {{/posts}}-->
+<!--            </tbody>-->
+<!--        </table>-->
 <!--    </div>-->
+
 
 {{>layout/footer}}

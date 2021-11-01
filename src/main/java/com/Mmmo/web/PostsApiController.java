@@ -33,4 +33,9 @@ public class PostsApiController {
         postsService.delete(id);
         return id;
     }
+
+    @GetMapping("/api/v1/posts/{inputDate}")
+    public PostsResponseDto findByInputDate (@PathVariable String inputDate){
+        return postsService.findByInputDate(inputDate);
+    }
 }

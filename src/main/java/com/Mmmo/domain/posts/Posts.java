@@ -28,14 +28,14 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
-    private String dateTime;
+    private String inputDate;
 
     @Builder //생성자상단에 선언시 생성자에 포합된 필드만 빌더에 포
-    public Posts(String title, String content, String author , String dateTime) {
+    public Posts(String title, String content, String author , String inputDate) {
         this.title = title;
         this.content = content;
         this.author = author;
-        this.dateTime = dateTime;
+        this.inputDate = inputDate;
     }
 
     public void update(String title,String content) {

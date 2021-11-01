@@ -52,4 +52,14 @@ public class PostsService {
 
         postsRepository.delete(posts);
     }
+
+    public PostsResponseDto findByInputDate (String inputDate){
+        Posts entity;
+        if(!(inputDate.equals(""))) {
+             entity = postsRepository.findByInputDate(inputDate);
+        }else{
+            entity = postsRepository.findByInputDate(inputDate);
+        }
+        return new PostsResponseDto(entity);
+    }
 }

@@ -19,7 +19,7 @@ var main = {
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val(),
-            dateTime: $('#dateTime').val()
+            inputDate: $('#inputDate').val()
         };
 
         $.ajax({

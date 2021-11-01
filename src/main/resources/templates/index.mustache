@@ -5,7 +5,14 @@
     <div id="header_photo"><input type="file" name="upic" /></div>
     <div id="header_ment">OOO님 힘내세요!!</div>
     <div id="header_a">
-        <a href="/loginform">로그인</a> / <a href="#">회원 가입</a>
+        {{#userName}}
+            Logged in as: <span id="user">{{userName}}</span>
+        <a href="/logout" role="button">Logout</a>
+        {{/userName}}
+        {{^userName}}
+            <a href="/oauth2/authorization/google" role="button">Google Login</a>
+        {{/userName}}
+        <a href="/loginform" role="button" class="btn" >로그인</a>  /  <a href="#" role="button" class="btn" >회원 가입</a>
     </div>
     <div id="header_title">MyMeMo</div>
 </header>
@@ -41,15 +48,11 @@
                     <option value="12">12월</option>
                 </select>
                 <button type="button" onclick="changeMonth(1);"><i class="fa fa-chevron-right"></i></button>
-                <div style="float: right; margin-top: 5px;">
-                    <a href="/posts/save" role="button" class="btn btn-primary">일정 추가</a>
-                    <a href="/posts/update/{data}" role="button" class="btn btn-primary">일정 수정</a>
-                </div>
             </div>
-            <table class="table table-bordered">
+            <table >
                 <thead>
-                <tr bgcolor="#add8e6" style="border: 3px solid gray; height: 100px;">
-                    <th style="color: red">일</th>
+                <tr bgcolor="#add8e6" style="border: 3px solid gray; ">
+                    <th style="color: red;">일</th>
                     <th>월</th>
                     <th>화</th>
                     <th>수</th>
@@ -62,8 +65,33 @@
             </table>
         </div>
     </div>
-
 </section>
+<section2 id="cal2">
+
+    <table class="table" style="width: 700px;">
+        <thead class="thead-strong">
+        <tr>
+            <th>날짜</th>
+            <th style="width: 100px"> 내용</th>
+            <th>작성자</th>
+            <th>최종수정일</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr>
+                <td style="text-align: center"><a href="/posts/update/{{id}}">{{inputDate}}</a></td>
+                <td style="text-align: center"><a href="/posts/update/{{id}}">{{content}}</a></td>
+                <td style="text-align: center">{{author}}</td>
+                <td style="text-align: center">{{modifiedDate}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+    <div style="float: right; margin-top: 5px;">
+        <a href="/posts/save" role="button" class="btn" >일정 등록하기</a>
+    </div>
+</section2>
 <footer>
     <div style="font-size: 25px; text-align: center;">Web Developer LJW </div>
 
